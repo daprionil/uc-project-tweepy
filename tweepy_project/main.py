@@ -6,14 +6,18 @@ import nltk
 import tweepy
 from environment import environment
 from nltk.corpus import stopwords
+from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.stem import WordNetLemmatizer
 
 nltk.download("stopwords")
 nltk.download("wordnet")
+nltk.download("vader_lexicon")
 
 bearer_token = environment.__getitem__("bearer_token")
 
 client = tweepy.Client(bearer_token=bearer_token, wait_on_rate_limit=True)
+
+sia = SentimentIntensityAnalyzer()
 
 
 @functools.lru_cache()
@@ -71,5 +75,20 @@ tweets_list: List[str] = [
 # Comentado solo porque la API no deja hacer peticiones de manera continua
 # for tweet in tweets.data:
 #     tweets_list.append(tweet.text)
+
 tweets = clean_tweets(tweets_list)
-print(tweets)
+
+# Analiza el sentimiento de cada tweet
+sentiments = [sia.polarity_scores(tweet) for tweet in tweets]
+
+# Clasifica los sentimientos
+sentiment_labels = [
+    "Positivo"
+    if sentiment["compound"] > 0.05
+    else "Negativo"
+    if sentiment["compound"] < -0.05
+    else "Neutro"
+    for sentiment in sentiments
+]
+
+print(sentiment_labels)
