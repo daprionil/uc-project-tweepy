@@ -2,7 +2,7 @@
 name = "tweepy-project"
 version = "0.1.0"
 description = ""
-authors = ["@bulla.d.david <bulla.d.david@gmail.com>"]
+authors = ["Daprion <bulla.d.david@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
