@@ -2,7 +2,7 @@ from typing import List
 
 from tweepy import Client
 
-from ..domain.port import RequestAdapterPort
+from tweepy_project.domain.port import RequestAdapterPort
 
 
 class RequestAdapter(RequestAdapterPort):

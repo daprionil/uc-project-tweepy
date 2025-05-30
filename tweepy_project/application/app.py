@@ -1,6 +1,6 @@
 from typing import Any
 
-from .domain.port import AnalizerPort, RequestAdapterPort, UtilsPort
+from tweepy_project.domain.port import AnalizerPort, RequestAdapterPort, UtilsPort
 
 
 class App:
@@ -26,4 +26,5 @@ class App:
         # analiza los tweets y extrae los sentimientos
         sentiment_labels = self.analizer.give_sentiments(clean_tweets)
 
+        # Usa mathplotlib para visualizar resultados
         print(sentiment_labels)

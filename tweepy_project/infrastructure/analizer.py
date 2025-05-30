@@ -2,7 +2,7 @@ from typing import List
 
 from nltk.sentiment import SentimentIntensityAnalyzer
 
-from ..domain.port import AnalizerPort
+from tweepy_project.domain.port import AnalizerPort
 
 
 class AnalizerAdapter(AnalizerPort):

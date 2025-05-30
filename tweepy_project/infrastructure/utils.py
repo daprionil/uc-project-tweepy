@@ -4,7 +4,7 @@ from typing import List
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-from ..domain.port import UtilsPort
+from tweepy_project.domain.port import UtilsPort
 
 
 class Utils(UtilsPort):
