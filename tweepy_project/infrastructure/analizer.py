@@ -17,11 +17,11 @@ class AnalizerAdapter(AnalizerPort):
 
         # Clasifica los sentimientos
         sentiment_labels = [
-            "Positivo"
+            "Positive"
             if sentiment["compound"] > 0.05
-            else "Negativo"
+            else "Negative"
             if sentiment["compound"] < -0.05
-            else "Neutro"
+            else "Neutral"
             for sentiment in sentiments
         ]
         return sentiment_labels

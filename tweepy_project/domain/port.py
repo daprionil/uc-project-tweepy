@@ -18,7 +18,17 @@ class UtilsPort(metaclass=abc.ABCMeta):
         raise NotImplementedError
 
     @abc.abstractmethod
+    def generate_graphic(self, sentiments: List[str], tweets: List[str]) -> List[str]:
+        raise NotImplementedError
+
+    @abc.abstractmethod
     def clean_tweets(self, tweets: List[str]) -> List[str]:
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def generate_positive_analythics(
+        self, sentiments: List[str], tweets: List[str]
+    ) -> None:
         raise NotImplementedError
 
 

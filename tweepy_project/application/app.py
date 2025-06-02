@@ -27,4 +27,4 @@ class App:
         sentiment_labels = self.analizer.give_sentiments(clean_tweets)
 
         # Usa mathplotlib para visualizar resultados
-        print(sentiment_labels)
+        self.utils.generate_graphic(sentiment_labels)
